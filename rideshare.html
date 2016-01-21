@@ -2,8 +2,20 @@
   <title>Williams Rideshare</title>
 </head>
 
-<body>
-  <h1>Welcome to Williams Rideshare!</h1>
-  <h2> test </h2>
-  {{> loginButtons}}
-</body>
+<template name="layout">
+  <body>
+    <h1>Welcome to Williams Rideshare!</h1>
+    <h2> test </h2>
+    {{> loginButtons}}
+    {{> yield}}
+  </body>
+</template>
+
+<template name="home">
+  <body>
+    <div class="span 10 offset1">
+      <h2> Posts </h2>
+        <p> New text </p>
+    </div>
+  </body>
+</template>
