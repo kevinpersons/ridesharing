@@ -4,12 +4,22 @@
 
 <template name="layout">
   <body>
-    <h1>Welcome to Williams Rideshare!</h1>
-    <h2> test </h2>
+    {{> header}}
     {{> loginButtons}}
     {{> yield}}
   </body>
 </template>
+
+<template name="header">
+  <body>
+    <div class="jumbotron">
+        <h1>Williams Rideshare</h1>
+        <p class="lead">Brief</p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
+      </div>
+  </body>
+</template>
+
 
 <template name="home">
   <body>
