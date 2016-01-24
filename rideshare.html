@@ -1,31 +1,178 @@
 <head>
-  <title>Williams Rideshare</title>
+  <title>CattleCar</title>
 </head>
 
 <template name="layout">
-  <body>
-    {{> header}}
-    {{> loginButtons}}
+    {{> navbar}}
     {{> yield}}
-  </body>
+</template>
+
+
+<template name="navbar">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a id="brand-button" class="navbar-brand navbar-center" href="/">CowPool</a>
+        <a href="#" class="btn btn-primary btn-success navbar-btn navbar-left">
+          <span class="glyphicon glyphicon-plus"></span>
+        </a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/phone">Phone</a></li>
+          <li><a id="about-button" href="/about">About</a></li>
+          <li><a id="login-button" href="/login">Sign In</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <template name="header">
-  <body>
     <div class="jumbotron">
         <h1>Williams Rideshare</h1>
         <p class="lead">Brief</p>
         <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
       </div>
-  </body>
+</template>
+
+<template name="about">
+    <div class="span 10 offset1">
+      <h2> About </h2>
+        <p> We made this app for the benefit of the Williams community.</p>
+    </div>
 </template>
 
 
-<template name="home">
-  <body>
-    <div class="span 10 offset1">
-      <h2> Posts </h2>
-        <p> New text </p>
+<template name="login">
+    {{> loginButtons}}
+</template>
+
+<template name="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 col-md-6 main">
+        <ul id="contentList" class="nav nav-sidebar pre-scrollable">
+          <li class="active"><a href="#">Overview</a></li>
+          <li><a href="#">Reports</a></li>
+          <li><a href="#">Analytics</a></li>
+          <li><a href="#">Export</a></li>
+          <li><a href="#">Nav item</a></li>
+          <li><a href="#">Nav item again</a></li>
+          <li><a href="#">One more nav</a></li>
+          <li><a href="#">Another nav item</a></li>
+          <li><a href="#">More navigation More navigation More navigation More navigation
+          More navigation More navigation More navigation More navigation More navigation
+          More navigation More navigation More navigation More navigation More navigation</a></li>
+          <li><a href="#">Nav item again</a></li>
+          <li><a href="#">One more nav</a></li>
+          <li><a href="#">Another nav item</a></li>
+          <li><a href="#">Nav item</a></li>
+          <li><a href="#">Nav item again</a></li>
+          <li><a href="#">One more nav</a></li>
+          <li><a href="#">Another nav item</a></li>
+          <li><a href="#">More navigation</a></li>
+          <li><a href="#">Nav item again</a></li>
+          <li><a href="#">One more nav</a></li>
+          <li><a href="#">Another nav item</a></li>
+          <li><a href="#">Nav item</a></li>
+          <li><a href="#">Nav item again</a></li>
+          <li><a href="#">One more nav</a></li>
+        </ul>
+      </div>
+
+
+      <div class="col-sm-6 col-sm-offset-6 col-md-6 col-md-offset-6 sidebar">
+        <h1 class="page-header">Dashboard</h1>
+        <h2 class="sub-header">Section title</h2>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Header</th>
+                <th>Header</th>
+                <th>Header</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1,001</td>
+                <td>Lorem</td>
+                <td>ipsum</td>
+                <td>dolor</td>
+              </tr>
+              <tr>
+                <td>1,002</td>
+                <td>amet</td>
+                <td>consectetur</td>
+                <td>adipiscing</td>
+              </tr>
+              <tr>
+                <td>1,003</td>
+                <td>Integer</td>
+                <td>nec</td>
+                <td>odio</td>
+              </tr>
+              <tr>
+                <td>1,004</td>
+                <td>libero</td>
+                <td>Sed</td>
+                <td>cursus</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
-  </body>
+  </div>
+</template>
+
+
+<template name="navBar">
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Williams RideShare</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li id="new-button"><a class="navbar-brand" href="/new">+</a></li>
+        <li id="about-button"><a href="/about">About</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">
+        {{> loginButtons}}
+      </a></li>
+        <li><a href="#">Join</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+</template>
+
+<template name="sendText">
+  <form id="textForm">
+    <input type="text" name="phoneNum" placeholder="###-###-####" /><br>
+    <input type="text" name="textBody" placeholder="Text to send" /><br>
+    <button id="sendMsg" type="submit">
+      Send Text to Above Number
+    </button>
+  </form>
 </template>
