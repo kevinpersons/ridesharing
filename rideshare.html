@@ -228,7 +228,7 @@
           <a href="#" class="list-group-item active">
               Active Posts
           </a>
-          <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+          <a href="#" class="list-group-item">{{> yield "posts"}}</a>
           <a href="#" class="list-group-item">Morbi leo risus</a>
           <a href="#" class="list-group-item">Porta ac consectetur ac</a>
           <a href="#" class="list-group-item">Vestibulum at eros</a>
@@ -334,7 +334,7 @@
             <option value="oklahoma city, ok">Oklahoma City</option>
           </select>
         </div>
-          <div id="map"></div>
+          <div id="map" class="center"></div>
           <script>
           function initMap() {
               var directionsService = new google.maps.DirectionsService;
