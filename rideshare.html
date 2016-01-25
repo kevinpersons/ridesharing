@@ -1,10 +1,13 @@
 <head>
-  <title>CattleCar</title>
+  <title>CowPool &middot; Williams Ridesharing</title>
+  <link rel="icon" sizes="16x16 32x32" href="/favicon.ico?v=2">
+  <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
 </head>
 
 <template name="layout">
     {{> navbar}}
     {{> yield}}
+    {{> sAlert}}
 </template>
 
 
@@ -19,27 +22,27 @@
           <span class="icon-bar"></span>
         </button>
         <a id="brand-button" class="navbar-brand navbar-center" href="/">CowPool</a>
-        <a href="#" class="btn btn-primary btn-success navbar-btn navbar-left">
+        <a id="testbtn" href="/new" class="btn navbar-btn navbar-left">
           <span class="glyphicon glyphicon-plus"></span>
         </a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/phone">Phone</a></li>
+          <li><a id="home-button" class="visible-xs-block" href="/">Home</a></li>
           <li><a id="about-button" href="/about">About</a></li>
-          <li><a id="login-button" href="/login">Sign In</a></li>
+          <li>
+            <a id="login-button" href="/login">
+              {{#if currentUser}}
+                  My Account
+                {{else}}
+                  Sign In
+                {{/if}}
+            </a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
-</template>
-
-<template name="header">
-    <div class="jumbotron">
-        <h1>Williams Rideshare</h1>
-        <p class="lead">Brief</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
-      </div>
 </template>
 
 <template name="about">
@@ -49,9 +52,144 @@
     </div>
 </template>
 
+<template name="new">
+  <div class="jumbotron text-center">
+    <h3>Looking for a ride?</h3>
+    <a href="/new/notification" class="btn btn-lg btn-primary">
+      Create Notification
+    </a>
+    <br><br><br>
+    <h4>or maybe...</h4>
+    <br>
+    <h3>Driving someplace nearby?</h3>
+    <a href="/new/trip" class="btn btn-lg btn-primary">
+      Post New Trip
+    </a>
+  </div>
+</template>
+
+<template name="newTrip">
+  <div id="newTripForm">
+    <h3>Please provide details about the trip</h3>
+    <form>
+      <div class="form-group">
+        <label for="destination">Destination</label>
+        <select name="destination" class="form-control">
+          <option>Stop and Shop</option>
+          <option>Mass MoCA</option>
+          <option>Walmart</option>
+          <option>North Adams Cinema</option>
+          <option>Wild Oats</option>
+          <option>Berkshire Mall</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="departureTime">Departure Time</label>
+        <br>
+        <div class="input-group clockpicker">
+            <input type="text" class="form-control">
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-time"></span>
+            </span>
+        </div>
+        <br>
+        <div class="radio-inline">
+          <label>
+            <input type="radio" name="dayRadios" value="today" checked>
+            Today
+          </label>
+        </div>
+        <div class="radio-inline">
+          <label>
+            <input type="radio" name="dayRadios" value="tomorrow">
+            Tomorrow
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="seats">Number of Seats</label>
+        <select name="seats" class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option selected>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+        </select>
+      </div>
+
+      <div class="form-group well">
+        <h4>Hidden Information</h4>
+        <p class="help-block">
+          This information will only be available to verified Williams students.
+        </p>
+        <div class="form-group">
+          <label for="departureLoc">Departure Location</label>
+          <input name="departureLoc" type="text" class="form-control" placeholder="Thompson Lot"/>
+        </div>
+        <div class="form-group">
+          <label for="vehicleDesc">Vehicle Description</label>
+          <input name="vehicleDesc" type="text" class="form-control" placeholder="Make, Model, Color, etc."/>
+        </div>
+      </div>
+
+      <div class="form-group well collapse-group">
+        <h4>Optional Stuff</h4>
+        <div id="optionalFields" class="collapse">
+          <div  class="form-group">
+            <label for="returnTime">Estimated Return Time</label>
+            <br>
+            <div class="input-group clockpicker">
+                <input type="text" class="form-control">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-time"></span>
+                </span>
+            </div>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" data-toggle="collapse" data-target="#amountField">
+              Compensation Expected?
+            </label>
+          </div>
+          <div id="amountField" class="form-group collapse">
+            <label for="amount">Amount</label>
+            <div class="input-group">
+              <span class="input-group-addon">$</span>
+              <input name="amount" type="text" class="form-control"/>
+              <span class="input-group-addon">.00</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="note">Additional Notes</label>
+            <input name="note" type="text" class="form-control"/>
+          </div>
+        </div>
+        <a class="btn btn-sm btn-default" data-toggle="collapse" data-target="#optionalFields">
+          View details &raquo;
+        </a>
+      </div>
+
+      <button id="submitTripBtn" type="submit" class="btn btn-primary">Post Ride Offer</button>
+    </form>
+  </div>
+</template>
+
+<template name="newNotification">
+
+</template>
+
+<template name="timeSelector">
+    <input class="timepicker" type="text">
+</template>
 
 <template name="login">
+    {{#if currentUser}}
     {{> loginButtons}}
+    {{> sendText}}
+    {{else}}
+    {{> loginButtons}}
+    {{/if}}
 </template>
 
 <template name="content">

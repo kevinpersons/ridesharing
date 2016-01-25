@@ -9,6 +9,11 @@ body {
     background-color: #5e35b1;
 }
 
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #4527a0;
+}
+
 .sub-header {
   padding-bottom: 10px;
   border-bottom: 1px solid #eee;
@@ -35,9 +40,17 @@ body {
   float: none;
 }
 
-.navbar-inverse .navbar-toggle:hover,
-.navbar-inverse .navbar-toggle:focus {
-    background-color: #4527a0;
+#testbtn {
+  color: white;
+  border: 1px solid #3f2376;
+}
+
+#testbtn:hover,
+#testbtn:focus,
+#testbtn:active:hover,
+#testbtn:active:focus,
+#testbtn:active {
+  background-color: #4527a0;
 }
 
 .navbar-center {
@@ -105,4 +118,12 @@ body {
 
 .main {
   top: 40px;
+}
+
+#newTripForm {
+  padding-left: 15px;
+}
+
+#submitTripBtn {
+  margin-bottom: 15px;
 }

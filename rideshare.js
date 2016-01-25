@@ -3,24 +3,36 @@ Router.route('/', function () {
   this.layout('layout');
   $('#about-button').removeClass('navbar-bold');
   $('#login-button').removeClass('navbar-bold');
+  $('#home-button').addClass('navbar-bold');
 });
 Router.route('/about', function () {
   this.render('about');
   this.layout('layout');
   $('#about-button').addClass('navbar-bold');
   $('#login-button').removeClass('navbar-bold');
+  $('#home-button').removeClass('navbar-bold');
 });
 Router.route('/login', function () {
   this.render('login');
   this.layout('layout');
   $('#about-button').removeClass('navbar-bold');
   $('#login-button').addClass('navbar-bold');
+  $('#home-button').removeClass('navbar-bold');
 });
-Router.route('/phone', function () {
-  this.render('sendText');
+Router.route('/new', function () {
+  this.render('new');
   this.layout('layout');
   $('#about-button').removeClass('navbar-bold');
   $('#login-button').removeClass('navbar-bold');
+  $('#home-button').removeClass('navbar-bold');
+});
+Router.route('/new/trip', function () {
+  this.render('newTrip');
+  this.layout('layout');
+});
+Router.route('/new/notification', function () {
+  this.render('newNotification');
+  this.layout('layout');
 });
 
 if (Meteor.isClient) {
@@ -33,6 +45,9 @@ if (Meteor.isClient) {
   Meteor.startup(function() {
     $(window).resize(function(evt) {
       $("#contentList").css('max-height',$(window).height()-130);
+    });
+    sAlert.config({
+        offset: 40, // in px
     });
   });
 
@@ -62,6 +77,11 @@ if (Meteor.isClient) {
       $("#navbar").collapse('hide');
       Router.go('/');
     },
+    'click #home-button':function(event) {
+      event.preventDefault();
+      $("#navbar").collapse('hide');
+      Router.go('/');
+    },
     'click #about-button':function(event) {
       event.preventDefault();
       $("#navbar").collapse('hide');
@@ -73,6 +93,17 @@ if (Meteor.isClient) {
       Router.go('/login');
     }
   });
+
+  Template.newTrip.events({
+    'submit form':function(event) {
+      event.preventDefault();
+      sAlert.success('Form Submitted! (not really)')
+    }
+  });
+
+  Template.newTrip.rendered = function () {
+    $('.clockpicker').clockpicker();
+  };
 }
 
 if (Meteor.isServer) {
