@@ -121,12 +121,20 @@ body {
     padding-left: 40px;
   }
 }
-.main .page-header {
+.main {
   margin-top: 0;
+}
+
+.page-header  {
+  font-family: "cornerstone";
 }
 
 .main {
   top: 40px;
+}
+
+.center {
+  margin: 0 auto;
 }
 
 #newTripForm {
@@ -139,6 +147,19 @@ body {
 }
 
 #map {
-  width: 500px;
-  height: 400px;
+  width: 550px;
+  height: 550px;
+}
+
+#floating-panel {
+  position: center;
+  z-index: 5;
+  background-color: #5e35b1;
+  padding: 1px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: 'cornerstone';
+  color: white;
+  line-height: 30px;
+  padding-left: 10px;
 }
