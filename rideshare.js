@@ -1,26 +1,44 @@
 Router.route('/', function () {
   this.render('content');
+  this.render('contentAside', {to: 'aside'});
   this.layout('layout');
   $('#about-button').removeClass('navbar-bold');
   $('#login-button').removeClass('navbar-bold');
+  $('#home-button').addClass('navbar-bold');
 });
 Router.route('/about', function () {
   this.render('about');
   this.layout('layout');
   $('#about-button').addClass('navbar-bold');
   $('#login-button').removeClass('navbar-bold');
+  $('#home-button').removeClass('navbar-bold');
 });
 Router.route('/login', function () {
   this.render('login');
   this.layout('layout');
   $('#about-button').removeClass('navbar-bold');
   $('#login-button').addClass('navbar-bold');
+  $('#home-button').removeClass('navbar-bold');
 });
-Router.route('/phone', function () {
-  this.render('sendText');
+Router.route('/new', function () {
+  this.render('new');
   this.layout('layout');
   $('#about-button').removeClass('navbar-bold');
   $('#login-button').removeClass('navbar-bold');
+  $('#home-button').removeClass('navbar-bold');
+});
+Router.route('/new/trip', function () {
+  this.render('newTrip');
+  this.layout('layout');
+});
+Router.route('/new/notification', function () {
+  this.render('asks');
+  this.layout('layout');
+});
+Router.route('/routes', function () {
+  this.render('content');
+  this.render('routes', {to: 'aside'});
+  this.layout('layout');
 });
 
 Offers = new Mongo.Collection('offers');
@@ -28,16 +46,50 @@ Asks = new Mongo.Collection('asks');
 
 if (Meteor.isClient) {
 
+  Meteor.startup(function() {
+    // resize the content list whenever window is resized
+    $(window).resize(function(evt) {
+      $("#contentList").css('max-height',$(window).height()-130);
+    });
+    // set up sAlerts (the unintrusive pop-up messages)
+    sAlert.config({
+        offset: 40, // in px
+    });
+  });
+
   // initialize content list height to maximize space
   Template.content.rendered = function() {
     $("#contentList").css('max-height',$(window).height()-130);
   };
-  // resize the content list whenever window is resized
-  Meteor.startup(function() {
-    $(window).resize(function(evt) {
-      $("#contentList").css('max-height',$(window).height()-130);
-    });
-  });
+
+  Template.googleLocationInput.rendered = function() {
+    window.onload = function() {
+      // lat/lng represent a rectangle around Williamstown/North Adams
+      var defaultBounds = new google.maps.LatLngBounds(
+        new google.maps.LatLng(42.635801, -73.302174),
+        new google.maps.LatLng(42.738514, -73.072148)
+      );
+      input = document.getElementById('autocomplete');
+      options = {
+          // search for businesses rather than addresses, cities, etc
+          types: ['establishment'],
+          // US results only
+          componentRestrictions: {country: 'us'},
+          // use the Williamstown boundary above to bias results
+          bounds: defaultBounds
+      };
+      autocomplete = new google.maps.places.Autocomplete(input, options);
+
+      /*// When the user selects an address from the dropdown,
+      google.maps.event.addListener(autocomplete, 'place_changed', function() {
+
+           // Get the place details from the autocomplete object.
+           var place = autocomplete.getPlace();
+
+           console.log("place: " + JSON.stringify(place) );
+      });*/
+    };
+  };
 
   Template.sendText.events({
     'submit form':function(event) {
@@ -65,6 +117,11 @@ if (Meteor.isClient) {
       $("#navbar").collapse('hide');
       Router.go('/');
     },
+    'click #home-button':function(event) {
+      event.preventDefault();
+      $("#navbar").collapse('hide');
+      Router.go('/');
+    },
     'click #about-button':function(event) {
       event.preventDefault();
       $("#navbar").collapse('hide');
@@ -74,6 +131,11 @@ if (Meteor.isClient) {
       event.preventDefault();
       $("#navbar").collapse('hide');
       Router.go('/login');
+    },
+    'click #new-button':function(event) {
+      event.preventDefault();
+      $("#navbar").collapse('hide');
+      Router.go('/new');
     }
   });
 
@@ -450,6 +512,18 @@ if (Meteor.isClient) {
 
     }
   });
+
+  Template.newTrip.events({
+    'submit form':function(event) {
+      event.preventDefault();
+      sAlert.success('Form Submitted! (not really)')
+    }
+  });
+
+  Template.newTrip.rendered = function () {
+    $('.clockpicker').clockpicker();
+  };
+
 }
 
 if (Meteor.isServer) {
