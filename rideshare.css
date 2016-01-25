@@ -5,6 +5,15 @@ body {
   padding-top: 50px;
 }
 
+@font-face {
+  font-family: "cornerstone";
+  src: url('cornerstone.eot');
+}
+
+.navbar-header {
+  font-family: "cornerstone";
+}
+
 .navbar {
     background-color: #5e35b1;
 }
