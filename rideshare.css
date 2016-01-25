@@ -49,16 +49,16 @@ body {
   float: none;
 }
 
-#testbtn {
+#new-button {
   color: white;
   border: 1px solid #3f2376;
 }
 
-#testbtn:hover,
-#testbtn:focus,
-#testbtn:active:hover,
-#testbtn:active:focus,
-#testbtn:active {
+#new-button:hover,
+#new-button:focus,
+#new-button:active:hover,
+#new-button:active:focus,
+#new-button:active {
   background-color: #4527a0;
 }
 
@@ -131,6 +131,7 @@ body {
 
 #newTripForm {
   padding-left: 15px;
+  padding-right: 15px;
 }
 
 #submitTripBtn {

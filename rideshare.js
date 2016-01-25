@@ -43,19 +43,50 @@ Router.route('/routes', function () {
 
 if (Meteor.isClient) {
 
-  // initialize content list height to maximize space
-  Template.content.rendered = function() {
-    $("#contentList").css('max-height',$(window).height()-130);
-  };
-  // resize the content list whenever window is resized
   Meteor.startup(function() {
+    // resize the content list whenever window is resized
     $(window).resize(function(evt) {
       $("#contentList").css('max-height',$(window).height()-130);
     });
+    // set up sAlerts (the unintrusive pop-up messages)
     sAlert.config({
         offset: 40, // in px
     });
   });
+
+  // initialize content list height to maximize space
+  Template.content.rendered = function() {
+    $("#contentList").css('max-height',$(window).height()-130);
+  };
+
+  Template.googleLocationInput.rendered = function() {
+    window.onload = function() {
+      // lat/lng represent a rectangle around Williamstown/North Adams
+      var defaultBounds = new google.maps.LatLngBounds(
+        new google.maps.LatLng(42.635801, -73.302174),
+        new google.maps.LatLng(42.738514, -73.072148)
+      );
+      input = document.getElementById('autocomplete');
+      options = {
+          // search for businesses rather than addresses, cities, etc
+          types: ['establishment'],
+          // US results only
+          componentRestrictions: {country: 'us'},
+          // use the Williamstown boundary above to bias results
+          bounds: defaultBounds
+      };
+      autocomplete = new google.maps.places.Autocomplete(input, options);
+
+      /*// When the user selects an address from the dropdown,
+      google.maps.event.addListener(autocomplete, 'place_changed', function() {
+
+           // Get the place details from the autocomplete object.
+           var place = autocomplete.getPlace();
+
+           console.log("place: " + JSON.stringify(place) );
+      });*/
+    };
+  };
 
   Template.sendText.events({
     'submit form':function(event) {
@@ -97,6 +128,11 @@ if (Meteor.isClient) {
       event.preventDefault();
       $("#navbar").collapse('hide');
       Router.go('/login');
+    },
+    'click #new-button':function(event) {
+      event.preventDefault();
+      $("#navbar").collapse('hide');
+      Router.go('/new');
     }
   });
 
