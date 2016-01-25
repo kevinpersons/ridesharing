@@ -141,3 +141,16 @@ body {
   width: 500px;
   height: 400px;
 }
+
+#floating-panel {
+  position: relative;;
+  z-index: 5;
+  background-color: #5e35b1;
+  padding: 1px;
+  border: 1px solid #999;
+  text-align: left;
+  font-family: 'cornerstone';
+  color: white;
+  line-height: 30px;
+  padding-left: 10px;
+}
