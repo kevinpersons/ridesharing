@@ -23,6 +23,11 @@ Router.route('/phone', function () {
   $('#about-button').removeClass('navbar-bold');
   $('#login-button').removeClass('navbar-bold');
 });
+Router.route('/routes', function () {
+  this.render('content');
+  this.render('routes', {to: 'aside'});
+  this.layout('layout');
+});
 
 if (Meteor.isClient) {
 
