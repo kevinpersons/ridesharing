@@ -174,6 +174,19 @@
             </tbody>
           </table>
         </div>
+        <h2>Map test</h2>
+          <div id="map"></div>
+          <script>
+          function initMap() {
+            var mapDiv = document.getElementById('map');
+            var map = new google.maps.Map(mapDiv, {
+              center: {lat: 42.713782, lng: -73.205057},
+              zoom: 15
+            });
+          }
+          </script>
+          <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+          async defer></script>
       </div>
     </div>
   </div>
