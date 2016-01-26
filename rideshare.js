@@ -46,6 +46,9 @@ Asks = new Mongo.Collection('asks');
 
 if (Meteor.isClient) {
 
+  Meteor.subscribe("asks");
+  Meteor.subscribe("offers");
+
   Meteor.startup(function() {
     // resize the content list whenever window is resized
     $(window).resize(function(evt) {
@@ -527,6 +530,11 @@ if (Meteor.isClient) {
 }
 
 if (Meteor.isServer) {
+
+  Meteor.publish("ask", function() {
+    return Asks.find();
+  });
+
   Meteor.startup(function () {
     // code to run on server at startup
   });
