@@ -1,188 +1,190 @@
 Template.asks.events({
   'submit form':function(event) {
     event.preventDefault();
-    var userA = "Nick";
+    var userA = Meteor.userId();
     var destBarA = $('#destA').find(":selected");
     var destTextA = destBarA.text();
     var durBarA = $('#durA').find(":selected");
     var durTextA = durBarA.text();
     var dolBarA = $('#dolA').find(":selected");
     var dolTextA = dolBarA.text();
-      var todayEightNineA = $('#td1A').val();
-      var todayNineTenA = $('#td2A').val();
-      var todayTenElevenA = $('#td3A').val();
-      var todayElevenNoonA = $('#td4A').val();
-      var todayNoonOnePmA = $('#td5A').val();
-      var todayOneTwoPmA = $('#td6A').val();
-      var todayTwoThreePmA = $('#td7A').val();
-      var todayThreeFourPmA = $('#td8A').val();
-      var todayFourFivePmA = $('#td9A').val();
-      var todayFiveSixPmA = $('#td10A').val();
-      var todaySixSevenPmA = $('#td11A').val();
-      var todaySevenEightPmA = $('#td12A').val();
-      var todayEightNinePmA = $('#td13A').val();
-      var todayNineTenPmA = $('#td14A').val();
-      var tomorrowEightNineA = $('#tm1A').val();
-      var tomorrowNineTenA = $('#tm2A').val();
-      var tomorrowTenElevenA = $('#tm3A').val();
-      var tomorrowElevenNoonA = $('#tm4A').val();
-      var tomorrowNoonOnePmA = $('#tm5A').val();
-      var tomorrowOneTwoPmA = $('#tm6A').val();
-      var tomorrowTwoThreePmA = $('#tm7A').val();
-      var tomorrowThreeFourPmA = $('#tm8A').val();
-      var tomorrowFourFivePmA = $('#tm9A').val();
-      var tomorrowFiveSixPmA = $('#tm10A').val();
-      var tomorrowSixSevenPmA = $('#tm11A').val();
-      var tomorrowSevenEightPmA = $('#tm12A').val();
-      var tomorrowEightNinePmA = $('#tm13A').val();
-      var tomorrowNineTenPmA = $('#tm14A').val();
-      var dayAfterEightNineA = $('#da1A').val();
-      var dayAfterNineTenA = $('#da2A').val();
-      var dayAfterTenElevenA = $('#da3A').val();
-      var dayAfterElevenNoonA = $('#da4A').val();
-      var dayAfterNoonOnePmA = $('#da5A').val();
-      var dayAfterOneTwoPmA = $('#da6A').val();
-      var dayAfterTwoThreePmA = $('#da7A').val();
-      var dayAfterThreeFourPmA = $('#da8A').val();
-      var dayAfterFourFivePmA = $('#da9A').val();
-      var dayAfterFiveSixPmA = $('#da10A').val();
-      var dayAfterSixSevenPmA = $('#da11A').val();
-      var dayAfterSevenEightPmA = $('#da12A').val();
-      var dayAfterEightNinePmA = $('#da13A').val();
-      var dayAfterNineTenPmA = $('#da14A').val();
+    var todayEightNineA = $('#td1A').is(':checked');
+    var todayNineTenA = $('#td2A').is(':checked');
+    var todayTenElevenA = $('#td3A').is(':checked');
+    var todayElevenNoonA = $('#td4A').is(':checked');
+    var todayNoonOnePmA = $('#td5A').is(':checked');
+    var todayOneTwoPmA = $('#td6A').is(':checked');
+    var todayTwoThreePmA = $('#td7A').is(':checked');
+    var todayThreeFourPmA = $('#td8A').is(':checked');
+    var todayFourFivePmA = $('#td9A').is(':checked');
+    var todayFiveSixPmA = $('#td10A').is(':checked');
+    var todaySixSevenPmA = $('#td11A').is(':checked');
+    var todaySevenEightPmA = $('#td12A').is(':checked');
+    var todayEightNinePmA = $('#td13A').is(':checked');
+    var todayNineTenPmA = $('#td14A').is(':checked');
+    var tomorrowEightNineA = $('#tm1A').is(':checked');
+    var tomorrowNineTenA = $('#tm2A').is(':checked');
+    var tomorrowTenElevenA = $('#tm3A').is(':checked');
+    var tomorrowElevenNoonA = $('#tm4A').is(':checked');
+    var tomorrowNoonOnePmA = $('#tm5A').is(':checked');
+    var tomorrowOneTwoPmA = $('#tm6A').is(':checked');
+    var tomorrowTwoThreePmA = $('#tm7A').is(':checked');
+    var tomorrowThreeFourPmA = $('#tm8A').is(':checked');
+    var tomorrowFourFivePmA = $('#tm9A').is(':checked');
+    var tomorrowFiveSixPmA = $('#tm10A').is(':checked');
+    var tomorrowSixSevenPmA = $('#tm11A').is(':checked');
+    var tomorrowSevenEightPmA = $('#tm12A').is(':checked');
+    var tomorrowEightNinePmA = $('#tm13A').is(':checked');
+    var tomorrowNineTenPmA = $('#tm14A').is(':checked');
+    var dayAfterEightNineA = $('#da1A').is(':checked');
+    var dayAfterNineTenA = $('#da2A').is(':checked');
+    var dayAfterTenElevenA = $('#da3A').is(':checked');
+    var dayAfterElevenNoonA = $('#daA').is(':checked');
+    var dayAfterNoonOnePmA = $('#da5A').is(':checked');
+    var dayAfterOneTwoPmA = $('#da6A').is(':checked');
+    var dayAfterTwoThreePmA = $('#da7A').is(':checked');
+    var dayAfterThreeFourPmA = $('#da8A').is(':checked');
+    var dayAfterFourFivePmA = $('#da9A').is(':checked');
+    var dayAfterFiveSixPmA = $('#da10A').is(':checked');
+    var dayAfterSixSevenPmA = $('#da11A').is(':checked');
+    var dayAfterSevenEightPmA = $('#da12A').is(':checked');
+    var dayAfterEightNinePmA = $('#da13A').is(':checked');
+    var dayAfterNineTenPmA = $('#da14A').is(':checked');
     var dayA = new Date(Date.now());
     var dateA = dayA.getDate();
     var dateTmA = dateA + 1;
-    var dateTmODaA = dateA + 2;
+    var dateDaA = dateA + 2;
     var whenA = [];
       if(todayEightNineA === true) {
-        when.push(dateA + "8-9");
+        whenA.push("Date: " + dateA + " Time: 8-9");
       };
       if(todayNineTenA === true) {
-        when.push(dateA + "9-10");
+        whenA.push("Date: " + dateA + " Ti  me: 9-10");
       };
       if(todayTenElevenA === true) {
-        when.push(dateA + "10-11");
+        whenA.push("Date: " + dateA + " Ti  me: 10-11");
       };
       if(todayElevenNoonA === true) {
-        when.push(dateA + "11-12");
+        whenA.push("Date: " + dateA + " Ti  me: 11-12");
       };
       if(todayNoonOnePmA === true) {
-        when.push(dateA + "12-1pm");
+        whenA.push("Date: " + dateA + " Ti  me: 12-1pm");
       };
       if(todayOneTwoPmA === true) {
-        when.push(dateA + "1-2pm");
+        whenA.push("Date: " + dateA + " Ti  me: 1-2pm");
       };
       if(todayTwoThreePmA === true) {
-        when.push(dateA + "2-3");
+        whenA.push("Date: " + dateA + " Ti  me: 2-3");
       };
       if(todayThreeFourPmA === true) {
-        when.push(dateA + "3-4pm");
+        whenA.push("Date: " + dateA + " Ti  me: 3-4pm");
       };
       if(todayFourFivePmA === true) {
-        when.push(dateA + "4-5pm");
+        whenA.push("Date:" + dateA + " Time: 4-5pm");
       };
       if(todayFiveSixPmA === true) {
-        when.push(dateA + "5-6pm");
+        whenA.push("Date: " + dateA + " Ti  me: 5-6pm");
       };
       if(todaySixSevenPmA === true) {
-        when.push(dateA + "6-7pm");
+        whenA.push("Date: " + dateA + " Ti  me: 6-7pm");
       };
       if(todaySevenEightPmA === true) {
-        when.push(dateA + "7-8pm");
+        whenA.push("Date: " + dateA + " Ti  me: 7-8pm");
       };
       if(todayEightNinePmA === true) {
-        when.push(dateA + "8-9pm");
+        whenA.push("Date: " + dateA + " Ti  me: 8-9pm");
       };
       if(todayNineTenPmA === true) {
-        when.push(dateA + "9-10pm");
+        whenA.push("Date: " + dateA + " Ti  me: 9-10pm");
       };
       if(tomorrowEightNineA === true) {
-        when.push(dateTmA + "8-9");
+        whenA.push("Date: " + dateTmA + "   Time: 8-9");
       };
       if(tomorrowNineTenA === true) {
-        when.push(dateTmA + "9-10");
+        whenA.push("Date: " + dateTmA + "   Time: 9-10");
       };
       if(tomorrowTenElevenA === true) {
-        when.push(dateTmA + "10-11");
+        whenA.push("Date: " + dateTmA + "   Time: 10-11");
       };
       if(tomorrowElevenNoonA === true) {
-        when.push(dateTmA + "11-12");
+        whenA.push("Date: " + dateTmA + "   Time: 11-12");
       };
       if(tomorrowNoonOnePmA === true) {
-        when.push(dateTmA + "12-1pm");
+        whenA.push("Date: " + dateTmA + "   Time: 12-1pm");
       };
       if(tomorrowOneTwoPmA === true) {
-        when.push(dateTmA + "1-2pm");
+        whenA.push("Date: " + dateTmA + "   Time: 1-2pm");
       };
       if(tomorrowTwoThreePmA === true) {
-        when.push(dateTmA + "2-3");
+        whenA.push("Date: " + dateTmA + "   Time: 2-3");
       };
       if(tomorrowThreeFourPmA === true) {
-        when.push(dateTmA + "3-4pm");
+        whenA.push("Date: " + dateTmA + "   Time: 3-4pm");
       };
       if(tomorrowFourFivePmA === true) {
-        when.push(dateTmA + "4-5pm");
+        whenA.push("Date: " + dateTmA + "   Time: 4-5pm");
       };
       if(tomorrowFiveSixPmA === true) {
-        when.push(dateTmA + "5-6pm");
+        whenA.push("Date: " + dateTmA + "   Time: 5-6pm");
       };
       if(tomorrowSixSevenPmA === true) {
-        when.push(dateTmA + "6-7pm");
+        whenA.push("Date: " + dateTmA + "   Time: 6-7pm");
       };
       if(tomorrowSevenEightPmA === true) {
-        when.push(dateTmA + "7-8pm");
+        whenA.push("Date: " + dateTmA + "   Time: 7-8pm");
       };
       if(tomorrowEightNinePmA === true) {
-        when.push(dateTmA + "8-9pm");
+        whenA.push("Date: " + dateTmA + "   Time: 8-9pm");
       };
       if(tomorrowNineTenPmA === true) {
-        when.push(dateTmA + "9-10pm");
+        whenA.push("Date: " + dateTmA + "   Time: 9-10pm");
       };
       if(dayAfterEightNineA === true) {
-        when.push(dateDaA + "8-9");
+        whenA.push("Date: " + dateDaA + "   Time: 8-9");
       };
       if(dayAfterNineTenA === true) {
-        when.push(dateDaA + "9-10");
+        whenA.push("Date: " + dateDaA + "   Time: 9-10");
       };
       if(dayAfterTenElevenA === true) {
-        when.push(dateDaA + "10-11");
+        whenA.push("Date: " + dateDaA + "   Time: 10-11");
       };
       if(dayAfterElevenNoonA === true) {
-        when.push(dateDaA + "11-12");
+        whenA.push("Date: " + dateDaA + "   Time: 11-12");
       };
       if(dayAfterNoonOnePmA === true) {
-        when.push(dateDaA + "12-1pm");
+        whenA.push("Date: " + dateDaA + "   Time: 12-1pm");
       };
       if(dayAfterOneTwoPmA === true) {
-        when.push(dateDaA + "1-2pm");
+        whenA.push("Date: " + dateDaA + "   Time: 1-2pm");
       };
       if(dayAfterTwoThreePmA === true) {
-        when.push(dateDaA + "2-3");
+        whenA.push("Date: " + dateDaA + "   Time: 2-3");
       };
       if(dayAfterThreeFourPmA === true) {
-        when.push(dateDaA + "3-4pm");
+        whenA.push("Date: " + dateDaA + "   Time: 3-4pm");
       };
       if(dayAfterFourFivePmA === true) {
-        when.push(dateDaA + "4-5pm");
+        whenA.push("Date: " + dateDaA + "   Time: 4-5pm");
       };
       if(dayAfterFiveSixPmA === true) {
-        when.push(dateDaA + "5-6pm");
+        whenA.push("Date: " + dateDaA + "   Time: 5-6pm");
       };
       if(dayAfterSixSevenPmA === true) {
-        when.push(dateDaA + "6-7pm");
+        whenA.push("Date: " + dateDaA + "   Time: 6-7pm");
       };
       if(dayAfterSevenEightPmA === true) {
-        when.push(dateDaA + "7-8pm");
+        whenA.push("Date: " + dateDaA + "   Time: 7-8pm");
       };
       if(dayAfterEightNinePmA === true) {
-        when.push(dateDaA + "8-9pm");
+        whenA.push("Date: " + dateDaA + "   Time: 8-9pm");
       };
       if(dayAfterNineTenPmA === true) {
-        when.push(dateDaA + "9-10pm");
+        whenA.push("Date: " + dateDaA + "   Time: 9-10pm");
       };
 
-    Asks.insert({destination: destTextA, name: userA, duration: durTextA, dollar: dolTextA, time: whenA});
+      console.log(whenA);
+      debugger;
+    Meteor.call('insertAsk', destTextA, userA, durTextA, dolTextA, whenA);
 
    }
  });
@@ -190,7 +192,7 @@ Template.asks.events({
 Template.offers.events({
  'submit form':function(event) {
    event.preventDefault();
-   var userO = Meteor.user().userId();
+   var userO = Meteor.userId();
    var destBarO = $('#destO').find(":selected");
    var destTextO = destBarO.text();
    var durBarO = $('#durO').find(":selected");
@@ -243,135 +245,135 @@ Template.offers.events({
      var dateO = dayO.getDate();
      var dateTmO = dateO + 1;
      var dateDaO = dateO + 2;
-   var whenO = [];
+     var whenO = [];
      if(todayEightNineO === true) {
-       when.push(dateO + "8-9");
+       whenO.push("Date: " + dateO + "   Time: 8-9");
      };
      if(todayNineTenO === true) {
-       when.push(dateO + "9-10");
+       whenO.push("Date: " + dateO + "   Time: 9-10");
      };
      if(todayTenElevenO === true) {
-       when.push(dateO + "10-11");
+       whenO.push("Date: " + dateO + "   Time: 10-11");
      };
      if(todayElevenNoonO === true) {
-       when.push(dateO + "11-12");
+       whenO.push("Date: " + dateO + "   Time: 11-12");
      };
      if(todayNoonOnePmO === true) {
-       when.push(dateO + "12-1pm");
+       whenO.push("Date: " + dateO + "   Time: 12-1pm");
      };
      if(todayOneTwoPmO === true) {
-       when.push(dateO + "1-2pm");
+       whenO.push("Date: " + dateO + "   Time: 1-2pm");
      };
      if(todayTwoThreePmO === true) {
-       when.push(dateO + "2-3");
+       whenO.push("Date: " + dateO + "   Time: 2-3");
      };
      if(todayThreeFourPmO === true) {
-       when.push(dateO + "3-4pm");
+       whenO.push("Date: " + dateO + "   Time: 3-4pm");
      };
      if(todayFourFivePmO === true) {
-       when.push(dateO + "4-5pm");
+       whenO.push("Date: " + dateO + "   Time: 4-5pm");
      };
      if(todayFiveSixPmO === true) {
-       when.push(dateO + "5-6pm");
+       whenO.push("Date:" + dateO + "   Time: 5-6pm");
      };
      if(todaySixSevenPmO === true) {
-       when.push(dateO + "6-7pm");
+       whenO.push("Date: " + dateO + "   Time: 6-7pm");
      };
      if(todaySevenEightPmO === true) {
-       when.push(dateO + "7-8pm");
+       whenO.push("Date: " + dateO + "   Time: 7-8pm");
      };
      if(todayEightNinePmO === true) {
-       when.push(dateO + "8-9pm");
+       whenO.push("Date: " + dateO + "   Time: 8-9pm");
      };
      if(todayNineTenPmO === true) {
-       when.push(dateO + "9-10pm");
+       whenO.push("Date: " + dateO + "   Time: 9-10pm");
      };
      if(tomorrowEightNineO === true) {
-       when.push(dateTmO + "8-9");
+       whenO.push("Date: " + dateTmO + "   Time: 8-9");
      };
      if(tomorrowNineTenO === true) {
-       when.push(dateTmO + "9-10");
+       whenO.push("Date: " + dateTmO + "   Time: 9-10");
      };
      if(tomorrowTenElevenO === true) {
-       when.push(dateTmO + "10-11");
+       whenO.push("Date: " + dateTmO + "   Time: 10-11");
      };
      if(tomorrowElevenNoonO === true) {
-       when.push(dateTmO + "11-12");
+       whenO.push("Date: " + dateTmO + "   Time: 11-12");
      };
      if(tomorrowNoonOnePmO === true) {
-       when.push(dateTmO + "12-1pm");
+       whenO.push("Date: " + dateTmO + "   Time: 12-1pm");
      };
      if(tomorrowOneTwoPmO === true) {
-       when.push(dateTmO + "1-2pm");
+       whenO.push("Date: " + dateTmO + "   Time: 1-2pm");
      };
      if(tomorrowTwoThreePmO === true) {
-       when.push(dateTmO + "2-3");
+       whenO.push("Date: " + dateTmO + "   Time: 2-3");
      };
      if(tomorrowThreeFourPmO === true) {
-       when.push(dateTmO + "3-4pm");
+       whenO.push("Date: " + dateTmO + "   Time: 3-4pm");
      };
      if(tomorrowFourFivePmO === true) {
-       when.push(dateTmO + "4-5pm");
+       whenO.push("Date: " + dateTmO + "   Time: 4-5pm");
      };
      if(tomorrowFiveSixPmO === true) {
-       when.push(dateTmO + "5-6pm");
+       whenO.push("Date: " + dateTmO + "   Time: 5-6pm");
      };
      if(tomorrowSixSevenPmO === true) {
-       when.push(dateTmO + "6-7pm");
+       whenO.push("Date: " + dateTmO + "   Time: 6-7pm");
      };
      if(tomorrowSevenEightPmO === true) {
-       when.push(dateTmO + "7-8pm");
+       whenO.push("Date: " + dateTmO + "   Time: 7-8pm");
      };
      if(tomorrowEightNinePmO === true) {
-       when.push(dateTmO + "8-9pm");
+       whenO.push("Date: " + dateTmO + "   Time: 8-9pm");
      };
      if(tomorrowNineTenPmO === true) {
-       when.push(dateTmO + "9-10pm");
+       whenO.push("Date: " + dateTmO + "   Time: 9-10pm");
      };
      if(dayAfterEightNineO === true) {
-       when.push(dateDaO + "8-9");
+       whenO.push("Date: " + dateDaO + "   Time: 8-9");
      };
      if(dayAfterNineTenO === true) {
-       when.push(dateDaO + "9-10");
+       whenO.push("Date: " + dateDaO + "   Time: 9-10");
      };
      if(dayAfterTenElevenO === true) {
-       when.push(dateDaO + "10-11");
+       whenO.push("Date: " + dateDaO + "   Time: 10-11");
      };
      if(dayAfterElevenNoonO === true) {
-       when.push(dateDaO + "11-12");
+       whenO.push("Date: " + dateDaO + "   Time: 11-12");
      };
      if(dayAfterNoonOnePmO === true) {
-       when.push(dateDaO + "12-1pm");
+       whenO.push("Date: " + dateDaO + "   Time: 12-1pm");
      };
      if(dayAfterOneTwoPmO === true) {
-       when.push(dateDaO + "1-2pm");
+       whenO.push("Date: " + dateDaO + "   Time: 1-2pm");
      };
      if(dayAfterTwoThreePmO === true) {
-       when.push(dateDaO + "2-3");
+       whenO.push("Date: " + dateDaO + "   Time: 2-3");
      };
      if(dayAfterThreeFourPmO === true) {
-       when.push(dateDaO + "3-4pm");
+       whenO.push("Date: " + dateDaO + "   Time: 3-4pm");
      };
      if(dayAfterFourFivePmO === true) {
-       when.push(dateDaO + "4-5pm");
+       whenO.push("Date: " + dateDaO + "   Time: 4-5pm");
      };
      if(dayAfterFiveSixPmO === true) {
-       when.push(dateDaO + "5-6pm");
+       whenO.push("Date: " + dateDaO + "   Time: 5-6pm");
      };
      if(dayAfterSixSevenPmO === true) {
-       when.push(dateDaO + "6-7pm");
+       whenO.push("Date: " + dateDaO + "   Time: 6-7pm");
      };
      if(dayAfterSevenEightPmO === true) {
-       when.push(dateDaO + "7-8pm");
+       whenO.push("Date: " + dateDaO + "   Time: 7-8pm");
      };
      if(dayAfterEightNinePmO === true) {
-       when.push(dateDaO + "8-9pm");
+       whenO.push("Date: " + dateDaO + "   Time: 8-9pm");
      };
      if(dayAfterNineTenPmO === true) {
-       when.push(dateDaO + "9-10pm");
+       whenO.push("Date: " + dateDaO + "   Time: 9-10pm");
      };
 
-   Offers.insert({destination: destTextO, name: userO, duration: durTextO, dollar: doltextO, time: whenO});
+   Meteor.call('insertOffer', destTextO, userO, durTextO, dolTextO, whenO);
 
   }
 });
