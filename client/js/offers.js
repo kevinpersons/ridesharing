@@ -1,7 +1,7 @@
 Template.asks.events({
   'submit form':function(event) {
     event.preventDefault();
-    var userA = Meteor.user().userId();
+    var userA = "Nick";
     var destBarA = $('#destA').find(":selected");
     var destTextA = destBarA.text();
     var durBarA = $('#durA').find(":selected");
@@ -50,9 +50,10 @@ Template.asks.events({
       var dayAfterSevenEightPmA = $('#da12A').val();
       var dayAfterEightNinePmA = $('#da13A').val();
       var dayAfterNineTenPmA = $('#da14A').val();
-    var dateA = new Date(Date.now());
-    var dateTmA = new Date(Date.now() + 1);
-    var dateDaA = new Date(Date.now() + 2);
+    var dayA = new Date(Date.now());
+    var dateA = dayA.getDate();
+    var dateTmA = dateA + 1;
+    var dateTmODaA = dateA + 2;
     var whenA = [];
       if(todayEightNineA === true) {
         when.push(dateA + "8-9");
@@ -181,7 +182,7 @@ Template.asks.events({
         when.push(dateDaA + "9-10pm");
       };
 
-    Asks.insert({destination: destTextA, name: userA, duration: durTextA, dollar: doltextA, time: whenA});
+    Asks.insert({destination: destTextA, name: userA, duration: durTextA, dollar: dolTextA, time: whenA});
 
    }
  });
@@ -238,9 +239,10 @@ Template.offers.events({
      var dayAfterSevenEightPmO = $('#da12O').val();
      var dayAfterEightNinePmO = $('#da13O').val();
      var dayAfterNineTenPmO = $('#da14O').val();
-   var dateO = new Date(Date.now());
-   var dateTmO = new Date(Date.now() + 1);
-   var dateTmO = new Date(Date.now() + 2);
+     var dayO = new Date(Date.now());
+     var dateO = dayO.getDate();
+     var dateTmO = dateO + 1;
+     var dateDaO = dateO + 2;
    var whenO = [];
      if(todayEightNineO === true) {
        when.push(dateO + "8-9");
