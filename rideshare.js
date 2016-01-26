@@ -47,7 +47,12 @@ Asks = new Mongo.Collection('asks');
 if (Meteor.isClient) {
 
   Meteor.subscribe("asks");
-  Meteor.subscribe("offers");
+
+  Template.asks.helpers({
+    'asks':function() {
+      return Asks.find({});
+    }
+  });
 
   Meteor.startup(function() {
     // resize the content list whenever window is resized
@@ -65,8 +70,14 @@ if (Meteor.isClient) {
     $("#contentList").css('max-height',$(window).height()-130);
   };
 
-  Template.googleLocationInput.rendered = function() {
-    window.onload = function() {
+  // initialize clockpicker and google maps location autocomplete box
+  Template.newTrip.rendered = function() {
+    $('.clockpicker').clockpicker();
+    GoogleMaps.init({
+        'language': 'en',
+        'libraries': 'places'
+    },
+    function() {
       // lat/lng represent a rectangle around Williamstown/North Adams
       var defaultBounds = new google.maps.LatLngBounds(
         new google.maps.LatLng(42.635801, -73.302174),
@@ -91,7 +102,39 @@ if (Meteor.isClient) {
 
            console.log("place: " + JSON.stringify(place) );
       });*/
-    };
+    });
+  };
+
+  Template.routes.rendered = function() {
+    GoogleMaps.init({
+        'language': 'en',
+        'libraries': 'places'
+    },
+    function() {
+      var directionsService = new google.maps.DirectionsService;
+      var directionsDisplay = new google.maps.DirectionsRenderer;
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15,
+        center: {lat: 42.713782, lng: -73.205057}
+      });
+      directionsDisplay.setMap(map);
+
+      var onChangeHandler = function() {
+        directionsService.route({
+          origin: document.getElementById('start').value,
+          destination: document.getElementById('end').value,
+          travelMode: google.maps.TravelMode.DRIVING
+        }, function(response, status) {
+          if (status === google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      };
+      document.getElementById('start').addEventListener('change', onChangeHandler);
+      document.getElementById('end').addEventListener('change', onChangeHandler);
+    });
   };
 
   Template.sendText.events({
@@ -523,15 +566,11 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.newTrip.rendered = function () {
-    $('.clockpicker').clockpicker();
-  };
-
 }
 
 if (Meteor.isServer) {
 
-  Meteor.publish("ask", function() {
+  Meteor.publish("asks", function () {
     return Asks.find();
   });
 
