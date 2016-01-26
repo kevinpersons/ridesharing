@@ -1,4 +1,4 @@
-Template.offers.events({
+Template.asks.events({
   'submit form':function(event) {
     event.preventDefault();
     var destBarA = $('#destA').find(":selected");
@@ -180,7 +180,7 @@ Template.offers.events({
         when.push(dateDaA + "9-10pm");
       };
 
-    Offers.insert({destination: destTextA, name: user, duration: durTextA, dollar: doltextA, time: whenA});
+    Asks.insert({destination: destTextA, name: user, duration: durTextA, dollar: doltextA, time: whenA});
 
    }
  });
@@ -367,7 +367,7 @@ Template.offers.events({
        when.push(dateDaO + "9-10pm");
      };
 
-   Asks.insert({destination: destTextO, name: user, duration: durTextO, dollar: doltextO, time: whenO});
+   Offers.insert({destination: destTextO, name: user, duration: durTextO, dollar: doltextO, time: whenO});
 
   }
 });
