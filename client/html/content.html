@@ -8,7 +8,10 @@
           <li><a href="#">Analytics</a></li>
           <li><a href="#">Export</a></li>
           <li><a id="routes-button" href="/routes">Routes</a></li>
-          <li><a href="#">Nav item again</a></li>
+          {{#each offer}}
+          <li><a href="{{pathFor route='post.show'}}">
+          <strong>{{name}}</strong>: {{destination}} : {{time}}</a></li>
+          {{/each}}
           <li><a href="#">One more nav</a></li>
           <li><a href="#">Another nav item</a></li>
           <li><a href="#">More navigation More navigation More navigation More navigation
