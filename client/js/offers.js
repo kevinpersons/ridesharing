@@ -1,6 +1,7 @@
 Template.asks.events({
   'submit form':function(event) {
     event.preventDefault();
+    var userA = Meteor.user().userId();
     var destBarA = $('#destA').find(":selected");
     var destTextA = destBarA.text();
     var durBarA = $('#durA').find(":selected");
@@ -180,7 +181,7 @@ Template.asks.events({
         when.push(dateDaA + "9-10pm");
       };
 
-    Asks.insert({destination: destTextA, name: user, duration: durTextA, dollar: doltextA, time: whenA});
+    Asks.insert({destination: destTextA, name: userA, duration: durTextA, dollar: doltextA, time: whenA});
 
    }
  });
@@ -188,6 +189,7 @@ Template.asks.events({
 Template.offers.events({
  'submit form':function(event) {
    event.preventDefault();
+   var userO = Meteor.user().userId();
    var destBarO = $('#destO').find(":selected");
    var destTextO = destBarO.text();
    var durBarO = $('#durO').find(":selected");
@@ -367,7 +369,7 @@ Template.offers.events({
        when.push(dateDaO + "9-10pm");
      };
 
-   Offers.insert({destination: destTextO, name: user, duration: durTextO, dollar: doltextO, time: whenO});
+   Offers.insert({destination: destTextO, name: userO, duration: durTextO, dollar: doltextO, time: whenO});
 
   }
 });
