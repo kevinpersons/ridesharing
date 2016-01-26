@@ -181,9 +181,7 @@ Template.asks.events({
       if(dayAfterNineTenPmA === true) {
         whenA.push("Date: " + dateDaA + "   Time: 9-10pm");
       };
-
-      console.log(whenA);
-      debugger;
+      
     Meteor.call('insertAsk', destTextA, userA, durTextA, dolTextA, whenA);
 
    }

@@ -40,3 +40,8 @@ Router.route('/routes', function () {
   this.render('routes', {to: 'aside'});
   this.layout('layout');
 });
+Router.route('/displayasks', function () {
+  this.render('content');
+  this.render('displayasks', {to: 'aside'});
+  this.layout('layout');
+});

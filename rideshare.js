@@ -8,6 +8,12 @@ if (Meteor.isClient) {
   Meteor.subscribe("offers");
   Meteor.subscribe("asks");
 
+  Template.displayasks.helpers({
+  'asks':function() {
+    return Asks.find();
+  }
+});
+
   Meteor.startup(function() {
     // resize the content list whenever window is resized
     $(window).resize(function(evt) {
