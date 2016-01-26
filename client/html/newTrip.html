@@ -14,7 +14,7 @@
           <label for="departureTime">Departure Time</label>
           <br>
           <div class="input-group clockpicker">
-              <input type="text" class="form-control">
+              <input id="departureField" type="text" class="form-control">
               <span class="input-group-addon">
                   <span class="glyphicon glyphicon-time"></span>
               </span>
@@ -22,20 +22,20 @@
           <br>
           <div class="radio-inline">
             <label>
-              <input type="radio" name="dayRadios" value="today" checked>
+              <input id="todayField" type="radio" name="dayRadio" value="today" checked>
               Today
             </label>
           </div>
           <div class="radio-inline">
             <label>
-              <input type="radio" name="dayRadios" value="tomorrow">
+              <input id="tomorrowField" type="radio" name="dayRadio" value="tomorrow">
               Tomorrow
             </label>
           </div>
         </div>
         <div class="form-group">
           <label for="seats">Number of Seats</label>
-          <select name="seats" class="form-control">
+          <select id="numSeatsField" name="seats" class="form-control">
             <option>1</option>
             <option>2</option>
             <option selected>3</option>
@@ -53,11 +53,11 @@
         </p>
         <div class="form-group">
           <label for="departureLoc">Departure Location</label>
-          <input name="departureLoc" type="text" class="form-control" placeholder="e.g. Thompson Lot"/>
+          <input id="departureLocField" name="departureLoc" type="text" class="form-control" placeholder="e.g. Thompson Lot"/>
         </div>
         <div class="form-group">
           <label for="vehicleDesc">Vehicle Description</label>
-          <input name="vehicleDesc" type="text" class="form-control" placeholder="e.g. Blue Honda Civic"/>
+          <input id="vehicleField" name="vehicleDesc" type="text" class="form-control" placeholder="e.g. Blue Honda Civic"/>
         </div>
       </div>
 
@@ -68,7 +68,7 @@
             <label for="returnTime">Estimated Return Time</label>
             <br>
             <div class="input-group clockpicker">
-                <input type="text" class="form-control">
+                <input id="returnField" type="text" class="form-control">
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-time"></span>
                 </span>
@@ -76,21 +76,21 @@
           </div>
           <div class="checkbox">
             <label>
-              <input type="checkbox" data-toggle="collapse" data-target="#amountField">
+              <input id="compensationField" type="checkbox" data-toggle="collapse" data-target="#amountField">
               Compensation Expected?
             </label>
           </div>
-          <div id="amountField" class="form-group collapse">
+          <div class="form-group collapse">
             <label for="amount">Amount</label>
             <div class="input-group">
               <span class="input-group-addon">$</span>
-              <input name="amount" type="text" class="form-control"/>
+              <input id="amountField" name="amount" type="text" class="form-control"/>
               <span class="input-group-addon">.00</span>
             </div>
           </div>
           <div class="form-group">
             <label for="note">Additional Notes</label>
-            <input name="note" type="text" class="form-control"/>
+            <input id="noteField" name="note" type="text" class="form-control"/>
           </div>
         </div>
         <a class="btn btn-sm btn-default" data-toggle="collapse" data-target="#optionalFields">

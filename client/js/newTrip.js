@@ -36,6 +36,21 @@ Template.newTrip.rendered = function() {
 Template.newTrip.events({
   'submit form':function(event) {
     event.preventDefault();
-    sAlert.success('Form Submitted! (not really)')
+
+    var destination = $('#autocomplete').val();
+    var departure = $('#departureField').val();
+    var todayOrTomorrow = $('input[name=dayRadio]:checked').val();
+    var seats = $('#numSeatsField').val();
+    var departureLoc = $('#departureLocField').val();
+    var vehicle = $('#vehicleField').val();
+    var returnTime = $('#returnField').val();
+    //var compensation = $('#compensationField').val();
+    //var amount = $('#amountField').val();
+    var note = $('#noteField').val();
+
+    Meteor.call('insertRide',destination,seats);
+
+    sAlert.success(destination + "\n" + departure  + "\n" + todayOrTomorrow + "\n" + seats
+     + "\n" + departureLoc  + "\n" + vehicle + "\n" + returnTime + "\n" + note);
   }
 });

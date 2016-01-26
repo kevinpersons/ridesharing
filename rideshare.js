@@ -35,7 +35,9 @@ if (Meteor.isServer) {
     return Asks.find();
   });
 
-
+  Meteor.startup(function () {
+    // code to run on server at startup
+  });
 
   Accounts.config({
     restrictCreationByEmailDomain: 'williams.edu',
