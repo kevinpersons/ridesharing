@@ -7,7 +7,7 @@ body {
 
 @font-face {
   font-family: "cornerstone";
-  src: url('cornerstone.eot');
+  src: url('cornerstone.ttf');
 }
 
 .navbar-header {
