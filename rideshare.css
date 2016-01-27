@@ -161,6 +161,11 @@ input[type='checkbox']:checked {
   height: 550px;
 }
 
+#logout-button {
+  background-color: #F8F43F;
+  border: 1px solid #000;
+}
+
 #floating-panel {
   position: center;
   z-index: 5;
