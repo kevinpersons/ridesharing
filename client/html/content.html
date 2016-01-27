@@ -5,7 +5,6 @@
         <ul id="contentList" class="nav nav-sidebar pre-scrollable">
           <li class="active"><a href="#">Overview</a></li>
           <li><a id="displayasks-button" href="/displayasks">Display Asks</a></li>
-          <li><a id="routes-button" href="/routes">Routes</a></li>
           {{#each offer}}
           <li><a href="{{pathFor route='asks.show'}}">
           <strong>{{name}}</strong>: {{destination}} : {{time}}</a></li>

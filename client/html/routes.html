@@ -8,25 +8,45 @@
             <thead>
               <tr>
                 <th>Location Name</th>
-                <th>EST distance</th>
-                <th>Time</th>
+                <th>Estimated Distance (miles)</th>
+                <th>Estimated Trip Time (one way)</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Stop n Shop</td>
-                <td>3 mi</td>
-                <td>3 min</td>
+                <td>Stop n' Shop</td>
+                <td>2.6</td>
+                <td>6 min</td>
               </tr>
               <tr>
-                <td>Albany</td>
-                <td>50 mi</td>
-                <td>60 min</td>
+                <td>Colonial Plaza</td>
+                <td>1.6</td>
+                <td>5 min</td>
               </tr>
               <tr>
-                <td>Mt. Greylock</td>
-                <td>4 mi</td>
-                <td>10 min</td>
+                <td>Dunkin' Donuts</td>
+                <td>1.4</td>
+                <td>4 min</td>
+              </tr>
+              <tr>
+                <td>North Adams, MA</td>
+                <td>5.6</td>
+                <td>13 min</td>
+              </tr>
+              <tr>
+                <td>Pittsfiled, MA</td>
+                <td>21</td>
+                <td>33 min</td>
+              </tr>
+              <tr>
+                <td>New York, NY</td>
+                <td>170</td>
+                <td>3 hours</td>
+              </tr>
+              <tr>
+                <td>Boston, MA</td>
+                <td>170</td>
+                <td>2 hours 45 min</td>
               </tr>
             </tbody>
           </table>
@@ -34,15 +54,25 @@
         <div id="floating-panel">
           <b>Start: </b>
           <select id="start">
-            <option value="williams college, williamstown, ma">Williams</option>
+            <option value="Park street, williamstown, ma">Williams</option>
+            <option value="876 State rd, north adams, ma">Stop and Shop</option>
+            <option value="Colonial Plaza Williamstown, MA 01267">Colonial Plaza</option>
+            <option value="361 Main St, Williamstown, MA 01267">Dunkin' Donuts</option>
+            <option value="North Adams, MA">North Adams, MA</option>
+            <option value="Pittsfield, MA">Pittsfield, MA</option>
+            <option value="New York, NY">New York, NY</option>
+            <option value="Boston, MA">Boston, MA</option>
           </select>
           <b>End: </b>
           <select id="end">
             <option value="119 Spring St, New York, NY 10012">-</option>
             <option value="876 State rd, north adams, ma">Stop and Shop</option>
-            <option value="albany, ny">Albany</option>
-            <option value="joplin, mo">Joplin, MO</option>
-            <option value="oklahoma city, ok">Oklahoma City</option>
+            <option value="Colonial Plaza Williamstown, MA 01267">Colonial Plaza</option>
+            <option value="361 Main St, Williamstown, MA 01267">Dunkin' Donuts</option>
+            <option value="North Adams, MA">North Adams, MA</option>
+            <option value="Pittsfield, MA">Pittsfield, MA</option>
+            <option value="New York, NY">New York, NY</option>
+            <option value="Boston, MA">Boston, MA</option>
           </select>
         </div>
           <div id="map" class="center"></div>
