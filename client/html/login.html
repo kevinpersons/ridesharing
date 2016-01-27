@@ -2,18 +2,17 @@
   {{#if currentUser}}
     {{> settings}}
   {{else}}
-    {{> signup}}
-    {{> loginBox}}
+    {{> signupLogin}}
   {{/if}}
 </template>
 
-<template name="signup">
+<template name="signupLogin">
   <div class="top-content">
       <div class="inner-bg">
           <div class="container">
               <div class="row">
                   <div class="col-sm-8 col-sm-offset-2 text">
-                      <h1><strong>Cowpool</strong> Login &amp; Register Forms</h1>  <h2>Signup</h2>
+                      <h1>Login &amp; Register Forms</h1>
                   </div>
               </div>
               <div class="row">
@@ -21,8 +20,8 @@
                     <div class="form-box">
                       <div class="form-top">
                         <div class="form-top-left">
-                          <h3>Login to our site</h3>
-                            <p>Enter username and password to log on:</p>
+                          <h3>Register for our site</h3>
+                            <p>Enter Williams email and a password to sign up</p>
                         </div>
                       </div>
                         <div class="form-bottom">
@@ -34,19 +33,34 @@
                     </div>
                   </div>
                 </div>
+                <div class="col-sm-1 middle-border"></div>
+                <div class="col-sm-1"></div>
+
+                <div class="col-sm-5">
+
+                  <div class="form-box">
+                    <div class="form-top">
+                      <div class="form-top-left">
+                        <h3>Login</h3>
+                          <p>Enter your username and password</p>
+                      </div>
+                      <div class="form-top-right">
+                        <i class="fa fa-pencil"></i>
+                      </div>
+                      </div>
+                      <div class="form-bottom">
+                    <form>
+                      <input type="email" name="loginEmail" placeholder="Email">
+                      <input type="password" name="loginPassword" placeholder="Password">
+                      <input type="submit" value="Login">
+                    </form>
+                  </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-</template>
-
-<template name="loginBox">
-    <h2>Log in</h2>
-      <form>
-        <input type="email" name="loginEmail" placeholder="Email">
-        <input type="password" name="loginPassword" placeholder="Password">
-        <input type="submit" value="Login">
-      </form>
 </template>
 
 <template name="settings">
