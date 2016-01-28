@@ -42,6 +42,7 @@ Router.route('/displayasks', function () {
 });
 Router.route('/trip/:_id', function() {
   this.render('content');
+  this.render('displayasks', {to: 'aside'});
   this.render('trip', {
     to: 'aside',
     data: function() {

@@ -1,6 +1,8 @@
 <template name="login">
   {{#if currentUser}}
     {{> settings}}
+    <br><br><br>
+    {{> sendText}}
   {{else}}
     {{> signup}}
     {{> loginBox}}

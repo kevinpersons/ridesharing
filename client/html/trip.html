@@ -5,6 +5,10 @@
           <h1 class="page-header text-center" id="dest">{{destinationName}}</h1>
           <div id="addr">{{destinationAddress}}</div>
           Leaving: {{formatTime departureTime}}
+          {{#if returnTime}}
+            <br>
+            Returning: {{formatTime returnTime}}
+          {{/if}}
           <br>
           Seats Left: {{seatsLeft}} / {{availableSeats}}
           {{#if currentUser}}
@@ -12,10 +16,6 @@
             Leaving From: {{departureLocation}}
             <br>
             Vehicle Description: {{vehicleDescription}}
-          {{/if}}
-          {{#if returnTime}}
-          <br>
-          Returning: {{formatTime returnTime}}
           {{/if}}
           {{#if compensationAmount}}
           <br>
@@ -26,11 +26,14 @@
           Notes: {{note}}
           {{/if}}
           <br>
+          <br>
           <div id="tripMap" class="center"></div>
           <br>
+          {{#if currentUser}}
           <div class="text-center">
             <a id="joinButton" class="btn btn-primary btn-lg">Join Ride</a>
           </div>
+          {{/if}}
         </div>
       </div>
     </div>

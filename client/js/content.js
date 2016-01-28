@@ -5,7 +5,7 @@ Template.content.rendered = function() {
 
 Template.content.helpers({
   'ridesHelper':function() {
-    return Rides.find({departureTime : { $gte : new Date() } }, {sort: {departureTime: 1}} ) || {};
+    return Rides.find({departureTime : { $gte : new Date() }, seatsLeft : { $gt : 0 } }, {sort: {departureTime: 1}} ) || {};
   },
   'seatsHelper':function(numSeats) {
     var countArr = [];

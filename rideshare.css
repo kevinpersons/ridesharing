@@ -3,12 +3,17 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
   padding-top: 50px;
+  overflow-x: hidden;
 }
 
 h1 {
   text-align: center;
 }
 .navbar-header {
+  font-family: 'Coustard', serif;
+}
+
+#navbar {
   font-family: 'Coustard', serif;
 }
 
@@ -123,18 +128,14 @@ h1 {
   margin-top: 0;
 }
 
-.page-header  {
-  font-family: 'Coustard', serif;
-}
-
 .main {
   top: 40px;
 }
 
 input[type='checkbox'] {
     -webkit-appearance:none;
-    width:32px;
-    height:18px;
+    width:30px;
+    height:20px;
     background:white;
     border-radius:1px;
     border:2px solid #555;
@@ -197,18 +198,9 @@ h2 {
 
 #compensationField {
   -webkit-appearance: checkbox !important;
+  -moz-appearance: checkbox !important;
 }
 
-#everyother {
-  background-color: rgba(60,0,240,.4);
-  color: rgba(20,20,20,.8);
-  padding: 1px;
+#textForm {
   text-align: center;
-  line-height: 20px;
-}
-#opposites {
-  color: rgba(20,20,20,.8);
-  padding: 1px;
-  text-align: center;
-  line-height: 20px;
 }

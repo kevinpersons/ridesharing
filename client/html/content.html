@@ -6,16 +6,16 @@
           {{#each ridesHelper}}
           <li class="rideOffer {{#if isCurrentPageId _id}}active{{/if}}">
             <a href="/trip/{{_id}}">
-              <div class="title test col-md-9 col-xs-9 text-center">
+              <div class="title col-md-9 col-xs-9 text-center">
                 {{formatDest destinationName}}
               </div>
 
-              <div class="timeStamp test col-md-3 col-xs-3">
+              <div class="timeStamp col-md-3 col-xs-3">
                 {{formatDepartureTime departureTime currTime}}
               </div>
-              
-              <div class="test">
-                Seats Left:
+
+              <div class="seatsLeft">
+                Seats:
                 {{#each takenSeatsHelper availableSeats seatsLeft}}
                 <div class="carseat taken"></div>
                 {{/each}}
@@ -36,8 +36,9 @@
   </div>
 
   <style>
-    .test {
-      border: 1px solid red;
+    .seatsLeft {
+      display: inline-block;
+      width: 100%;
     }
     .title {
       font-size: 28px;
@@ -47,15 +48,32 @@
       font-size: 18px;
     }
     .carseat {
+      position: relative;
+      top: 4px;
       height: 20px;
       width: 20px;
       background-color: #8BC34A;
       display: inline-block;
       padding-right: 10px;
-      border-radius: 4px;
+      border-radius: 10px;
+      border: 1px solid #5e35b1;
     }
     .taken {
-      background-color: red;
+      background-color: #e53935;
+    }
+    .rideOffer {
+      text-align: center;
+    }
+    #contentList a {
+      color: #5e35b1;
+    }
+    #contentList a:hover,
+    #contentList a:focus,
+    #contentList a:active {
+      color: #5e35b1;
+    }
+    #contentList .active a {
+      color: white;
     }
   </style>
 </template>

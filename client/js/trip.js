@@ -55,6 +55,9 @@ Template.trip.events({
         sAlert.error(error.reason);
       }
     });
+    if (Rides.findOne(this._id).seatsLeft == 0) {
+      Router.go('/');
+    }
     // do other stuff later
   }
 });
