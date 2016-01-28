@@ -3,18 +3,19 @@
       <div class="row">
         <div class="col-sm-6 col-sm-offset-6 col-md-6 col-md-offset-6 sidebar">
           <h1 class="page-header text-center" id="dest">{{destinationName}}</h1>
-          Exact Address: <div id="addr">{{destinationAddress}}</div>
-          <br>
-          Departing At: {{departureTime}}
+          <div id="addr">{{destinationAddress}}</div>
+          Leaving: {{formatTime departureTime}}
           <br>
           Seats Left: {{seatsLeft}} / {{availableSeats}}
-          <br>
-          Departing From: {{departureLocation}}
-          <br>
-          Vehicle Description: {{vehicleDescription}}
+          {{#if currentUser}}
+            <br>
+            Leaving From: {{departureLocation}}
+            <br>
+            Vehicle Description: {{vehicleDescription}}
+          {{/if}}
           {{#if returnTime}}
           <br>
-          Returning: {{returnTime}}
+          Returning: {{formatTime returnTime}}
           {{/if}}
           {{#if compensationAmount}}
           <br>
@@ -24,7 +25,12 @@
           <br>
           Notes: {{note}}
           {{/if}}
+          <br>
           <div id="tripMap" class="center"></div>
+          <br>
+          <div class="text-center">
+            <a id="joinButton" class="btn btn-primary btn-lg">Join Ride</a>
+          </div>
         </div>
       </div>
     </div>
