@@ -1,6 +1,6 @@
 Router.route('/', function () {
   this.render('content');
-  this.render('contentAside', {to: 'aside'});
+  this.render('routes', {to: 'aside'});
   this.layout('layout');
   $('#about-button').removeClass('navbar-bold');
   $('#login-button').removeClass('navbar-bold');
