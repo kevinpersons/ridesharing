@@ -166,6 +166,12 @@ input[type='checkbox']:checked {
   height: 350px;
 }
 
+h2 {
+  font-family: 'Coustard', serif;
+  text-align: center;
+  padding-top: 10%;
+}
+
 #logout-button {
   background-color: #F8F43F;
   border: 1px solid #000;
