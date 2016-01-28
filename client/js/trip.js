@@ -21,7 +21,6 @@ Template.trip.rendered = function() {
         if (status === google.maps.DirectionsStatus.OK) {
           directionsDisplay.setDirections(response);
         } else {
-          alert(status)
           sAlert.error("Google was unable to find this location");
           // display just a map of Williamstown in case of error
           directionsService.route({

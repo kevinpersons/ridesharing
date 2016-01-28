@@ -5,13 +5,11 @@ body {
   padding-top: 50px;
 }
 
-@font-face {
-  font-family: "cornerstone";
-  src: url('cornerstone.ttf');
+h1 {
+  text-align: center;
 }
-
 .navbar-header {
-  font-family: "cornerstone";
+  font-family: 'Coustard', serif;
 }
 
 .navbar {
@@ -126,7 +124,7 @@ body {
 }
 
 .page-header  {
-  font-family: "cornerstone";
+  font-family: 'Coustard', serif;
 }
 
 .main {
@@ -168,6 +166,11 @@ input[type='checkbox']:checked {
   height: 350px;
 }
 
+#logout-button {
+  background-color: #F8F43F;
+  border: 1px solid #000;
+}
+
 #floating-panel {
   position: center;
   z-index: 5;
@@ -175,7 +178,7 @@ input[type='checkbox']:checked {
   padding: 1px;
   border: 1px solid #999;
   text-align: center;
-  font-family: 'cornerstone';
+  font-family: 'Coustard', serif;
   color: white;
   line-height: 30px;
   padding-left: 10px;

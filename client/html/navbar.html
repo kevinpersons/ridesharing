@@ -8,7 +8,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a id="brand-button" class="navbar-brand navbar-center" href="/">CowPool</a>
+        <a id="brand-button" class="navbar-brand navbar-center" href="/">Herd.</a>
         <a id="new-button" href="/new" class="btn navbar-btn navbar-left">
           <span class="glyphicon glyphicon-plus"></span>
         </a>
@@ -17,8 +17,9 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a id="home-button" class="visible-xs-block" href="/">Home</a></li>
           <li><a id="about-button" href="/about">About</a></li>
+          <li><a id="routes-button" href="/routes">Routes</a></li>
           <li>
-            <a id="login-button" href={{pathFor 'login'}}>
+            <a id="login-button" href="/login">
               {{#if currentUser}}
                   My Account
                 {{else}}

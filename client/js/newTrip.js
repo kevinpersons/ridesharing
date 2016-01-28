@@ -42,7 +42,7 @@ Template.newTrip.events({
     if (destination.length == "") { sAlert.error("Destination is required"); return; }
     if (destination.length < 5) { sAlert.error("Invalid destination"); return; }
     var googleObj = autocomplete.getPlace();
-    if (googleObj == undefined) {
+    if (googleObj == undefined || googleObj.place_id == undefined) {
       sAlert.error("Please choose a destination recognized by Google Maps");
       return;
     }
