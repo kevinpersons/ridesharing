@@ -4,13 +4,30 @@
       <div class="col-sm-6 col-md-6 main">
         <ul id="contentList" class="nav nav-sidebar pre-scrollable">
           <li class="active"><a href="#">Overview</a></li>
-          <li><a id="displayasks-button" href="/displayasks">Display Asks</a></li>
-          <li><a href="#">Analytics</a></li>
-          <li><a href="#">Export</a></li>
-          <li><a id="routes-button" href="/routes">Routes</a></li>
-          {{#each offer}}
-          <li><a href="{{pathFor route='asks.show'}}">
-          <strong>{{name}}</strong>: {{destination}} : {{time}}</a></li>
+          {{#each ridesHelper}}
+          <li>
+            <a href="/">
+              <div class="col-md-9 col-xs-9">
+                <h3>{{formatDest destination}}</h3>
+              </div>
+
+              <div class="col-md-3 col-xs-3">
+                Leaving in
+                {{formatDepartureTime departureTime currTime}}
+              </div>
+
+              <div>
+                Open Seats:
+                {{#each seatsHelper seatsLeft}}
+                <div class="carseat" style="height: 20px; width: 20px; background-color: green; display: inline-block; padding-right: 10px;"></div>
+                {{/each}}
+              </div>
+            </a>
+          </li>
+          {{else}}
+          <li>
+            No ride offers to display :(
+          </li>
           {{/each}}
         </ul>
       </div>
