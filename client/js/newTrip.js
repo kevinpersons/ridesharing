@@ -70,7 +70,7 @@ Template.newTrip.events({
     if (departureDateTime <= today) { sAlert.error("Departure time can't be in the past"); return; }
 
 
-    var seats = $('#numSeatsField').val(); // forces valid selection
+    var seats = Number($('#numSeatsField').val()); // forces valid selection
 
     // make sure something hopefully valid is entered
     var departureLoc = $('#departureLocField').val();

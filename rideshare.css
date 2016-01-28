@@ -166,6 +166,12 @@ input[type='checkbox']:checked {
   height: 350px;
 }
 
+@media (max-width: 768px) {
+  #map, #tripMap {
+    display: none;
+  }
+}
+
 #logout-button {
   background-color: #F8F43F;
   border: 1px solid #000;

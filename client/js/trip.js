@@ -40,3 +40,21 @@ Template.trip.rendered = function() {
     mapChangeHandler();
   });
 }
+
+Template.trip.helpers({
+  'formatTime':function(time) {
+    return new Date(time).toLocaleString();
+  }
+});
+
+Template.trip.events({
+  'click #joinButton':function(event) {
+    event.preventDefault();
+    Meteor.call('decrementSeatCount', this._id, function(error) {
+      if (error) {
+        sAlert.error(error.reason);
+      }
+    });
+    // do other stuff later
+  }
+});
