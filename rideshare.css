@@ -239,3 +239,9 @@ h2 {
   line-height: 25px;
 
 }
+
+#band {
+  background-color: rgba(60,80,180,.9);
+  font-size: 6px;
+
+}
