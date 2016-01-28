@@ -15,11 +15,12 @@
           var emailVar = event.target.loginEmail.value;
           var passwordVar = event.target.loginPassword.value;
           Meteor.loginWithPassword(emailVar, passwordVar);
+          Router.go('/')
         }
       });
 
 Template.settings.events({
-       'click .logout': function(event) {
+       'click #logout-button': function(event) {
          event.preventDefault();
          Meteor.logout();
       }
