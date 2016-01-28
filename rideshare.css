@@ -212,3 +212,30 @@ h2 {
   text-align: center;
   line-height: 20px;
 }
+
+#destask {
+  color: rgba(70,130,180,1);
+  padding: 1px;
+  text-align: center;
+  line-height: 63px;
+}
+
+#durask {
+  color: rgba(60,80,80,.7);
+  padding: 1px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 25px;
+
+
+
+}
+
+#dolask {
+  color: rgba(60,80,80,.5);
+  padding: 0px;
+  text-align: center;
+  font-size: 11px;
+  line-height: 25px;
+
+}

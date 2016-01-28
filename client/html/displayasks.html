@@ -5,14 +5,14 @@
         <h1 class="page-header">Asks</h1>
         <ul id="contentList" class="nav nav-sidebar pre-scrollable">
           {{#each asks}}
-          <li class="rideOffer">
-              <div class="title test col-md-9 col-xs-9 text-center">
-                <h2>{{destination}}</h2>
+          <li>
+              <div class="title  col-md-7 col-xs-7 text-center">
+              <strong id="durask">••</strong> <span id="destask"> {{destination}}</span> <strong id="durask">••</strong>
               </div>
 
-              <div class="timeStamp test col-md-2 col-xs-2">
-                {{duration}}
-                {{dollar}}
+              <div class="timeStamp col-md-4 col-xs-4">
+                <strong id="durask">{{duration}}</strong>
+                <p><span id="dolask">{{dollar}}</span></p>
               </div>
 
           </li>
