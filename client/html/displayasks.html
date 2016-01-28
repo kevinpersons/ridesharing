@@ -4,24 +4,23 @@
       <div class="col-sm-6 col-sm-offset-6 col-md-6 col-md-offset-6 sidebar">
         <h1 class="page-header">Asks</h1>
         <ul id="contentList" class="nav nav-sidebar pre-scrollable">
-        {{#each asks}}
-        <li>
-          <a href="/">
-            <div class="col-md-9 col-xs-9">
-              <strong>Looking To Go To:</strong>
-              <h3>{{destination}}</h3>
-            </div>
+          {{#each asks}}
+          <li class="rideOffer">
+              <div class="title test col-md-9 col-xs-9 text-center">
+                <h2>{{destination}}</h2>
+              </div>
 
-            <div class="col-md-3 col-xs-3">
-              <strong>For:</strong>
-              {{duration}}
-            </div>
+              <div class="timeStamp test col-md-2 col-xs-2">
+                {{duration}}
+                {{dollar}}
+              </div>
 
-            <strong>Will Pay:</strong>
-            {{dollar}}
-          </a>
-        </li>
-        {{/each}}
+          </li>
+          {{else}}
+          <li>
+            No ride asks to display :(
+          </li>
+          {{/each}}
         </ul>
       </div>
     </div>

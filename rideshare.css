@@ -133,8 +133,8 @@ h1 {
 
 input[type='checkbox'] {
     -webkit-appearance:none;
-    width:30px;
-    height:20px;
+    width:32px;
+    height:18px;
     background:white;
     border-radius:1px;
     border:2px solid #555;
@@ -186,4 +186,18 @@ input[type='checkbox']:checked {
 
 #compensationField {
   -webkit-appearance: checkbox !important;
+}
+
+#everyother {
+  background-color: rgba(60,0,240,.4);
+  color: rgba(20,20,20,.8);
+  padding: 1px;
+  text-align: center;
+  line-height: 20px;
+}
+#opposites {
+  color: rgba(20,20,20,.8);
+  padding: 1px;
+  text-align: center;
+  line-height: 20px;
 }
