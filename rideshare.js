@@ -10,7 +10,7 @@ if (Meteor.isClient) {
 
   Template.displayasks.helpers({
   'asks':function() {
-    return Asks.find();
+    return Asks.find({}, {sort: {submittedOn: -1}});
   }
 });
 

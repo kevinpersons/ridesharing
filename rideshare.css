@@ -171,6 +171,11 @@ input[type='checkbox']:checked {
     display: none;
   }
 }
+h2 {
+  font-family: 'Coustard', serif;
+  text-align: center;
+  padding-top: 10%;
+}
 
 #logout-button {
   background-color: #F8F43F;

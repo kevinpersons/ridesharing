@@ -1,6 +1,6 @@
 Router.route('/', function () {
   this.render('content');
-  this.render('pickTrip', { to: 'aside'} );
+  this.render('routes', { to: 'aside'} );
   this.layout('layout');
   $('#about-button').removeClass('navbar-bold');
   $('#login-button').removeClass('navbar-bold');
@@ -33,11 +33,6 @@ Router.route('/new/trip', function () {
 });
 Router.route('/new/notification', function () {
   this.render('asks');
-  this.layout('layout');
-});
-Router.route('/routes', function () {
-  this.render('content');
-  this.render('routes', {to: 'aside'});
   this.layout('layout');
 });
 Router.route('/displayasks', function () {
