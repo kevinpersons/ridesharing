@@ -181,8 +181,10 @@ Template.asks.events({
       if(dayAfterNineTenPmA === true) {
         whenA.push("Date: " + dateDaA + "   Time: 9-10pm");
       };
-      
+
     Meteor.call('insertAsk', destTextA, userA, durTextA, dolTextA, whenA);
+
+    Router.go('/displayasks');
 
    }
  });
@@ -372,6 +374,8 @@ Template.offers.events({
      };
 
    Meteor.call('insertOffer', destTextO, userO, durTextO, dolTextO, whenO);
+
+   Router.go('/');
 
   }
 });
