@@ -56,7 +56,7 @@ Template.asks.events({
     var dateDaA = dateA + 2;
     var whenA = [];
     var submittedOn = Date.now();
-    
+
       if(todayEightNineA === true) {
         whenA.push("Date: " + dateA + " Time: 8-9");
       };
