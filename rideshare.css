@@ -163,6 +163,11 @@ input[type='checkbox']:checked {
   height: 550px;
 }
 
+#tripMap {
+  width: 400px;
+  height: 350px;
+}
+
 #floating-panel {
   position: center;
   z-index: 5;

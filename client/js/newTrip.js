@@ -41,6 +41,16 @@ Template.newTrip.events({
     var destination = $('#autocomplete').val();
     if (destination.length == "") { sAlert.error("Destination is required"); return; }
     if (destination.length < 5) { sAlert.error("Invalid destination"); return; }
+    var googleObj = autocomplete.getPlace();
+    if (googleObj == undefined) {
+      sAlert.error("Please choose a destination recognized by Google Maps");
+      return;
+    }
+    else {
+      destination = googleObj.name;
+      var address = googleObj.formatted_address;
+      var placeId = googleObj.place_id;
+    }
 
     // convert the departure time and validate it
     var departure = $('#departureField').val();
@@ -95,7 +105,7 @@ Template.newTrip.events({
 
     var note = $('#noteField').val(); //optional, no validation
 
-    Meteor.call('insertRide',today,destination,departureDateTime,seats,departureLoc,vehicleDesc,returnTime,amount,note);
+    Meteor.call('insertRide',today,destination,address,placeId,departureDateTime,seats,departureLoc,vehicleDesc,returnTime,amount,note);
 
     // reset form
     $('#autocomplete').val('');
