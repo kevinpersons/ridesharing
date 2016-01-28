@@ -1,9 +1,6 @@
 // initialize content list height to maximize space
 Template.content.rendered = function() {
   $("#contentList").css('max-height',$(window).height()-130);
-  setInterval(function () {
-    Session.set("time", new Date());
-    }, 60000);
 };
 
 Template.content.helpers({
@@ -17,6 +14,13 @@ Template.content.helpers({
     }
     return countArr;
   },
+  takenSeatsHelper:function(totalSeats, numSeatsLeft) {
+    var countArr = [];
+    for (var i=0; i<totalSeats - numSeatsLeft; i++){
+      countArr.push({});
+    }
+    return countArr;
+  },
   'formatDest':function(dest) {
     if (dest.indexOf(',') != -1) {
       return dest.substring(0, dest.indexOf(','));
@@ -24,21 +28,23 @@ Template.content.helpers({
     return dest;
   },
   'formatDepartureTime':function(departureTime) {
-    var diff =  departureTime - new Date();
-    var minutes = ("0" + Math.floor( (diff/1000/60) % 60 )).slice(-2);
-    var hours = ("0" + Math.floor( diff/(1000*60*60) )).slice(-2);
-
+    // figure out actual departure time (i.e. 2:45pm today)
     var detailString = "";
     var depDateTime = new Date(departureTime);
     var hrs = depDateTime.getHours();
-    if (hrs > 12) { detailString += (hrs % 12) + " pm"; }
-    else { detailString += hrs + " am"; }
+    var mins = depDateTime.getMinutes();
+    if (mins < 10) { mins = "0" + mins; }
+    if (hrs > 12) { detailString += (hrs % 12) + ":" + mins + "pm"; }
+    else { detailString += hrs + ":" + mins + "am"; }
     if (depDateTime.getDate() == new Date().getDate() + 1) { detailString += " tomorrow"; }
     else { detailString += " today"; }
 
-    return hours + " hours " + minutes + " minutes" + " (" + detailString  + ")";
+    return detailString;
   },
-  'currTime':function() {
-    return Session.get('time');
+  isCurrentPage: function(pageName){
+    return Router.current().route.getName() == pageName;
+  },
+  isCurrentPageId: function(id){
+    return Router.current().params._id == id;
   }
 });

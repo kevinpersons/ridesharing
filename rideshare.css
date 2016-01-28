@@ -110,7 +110,7 @@ h1 {
 .nav-sidebar > .active > a:hover,
 .nav-sidebar > .active > a:focus {
   color: #fff;
-  background-color: #428bca;
+  background-color: #5e35b1;
 }
 
 @media (min-width: 768px) {
@@ -159,6 +159,11 @@ input[type='checkbox']:checked {
 #map {
   width: 550px;
   height: 550px;
+}
+
+#tripMap {
+  width: 400px;
+  height: 350px;
 }
 
 #logout-button {

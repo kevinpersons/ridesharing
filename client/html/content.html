@@ -3,23 +3,24 @@
     <div class="row">
       <div class="col-sm-6 col-md-6 main">
         <ul id="contentList" class="nav nav-sidebar pre-scrollable">
-          <li class="active"><a href="#">Overview</a></li>
           {{#each ridesHelper}}
-          <li>
-            <a href="/">
-              <div class="col-md-9 col-xs-9">
-                <h3>{{formatDest destination}}</h3>
+          <li class="rideOffer {{#if isCurrentPageId _id}}active{{/if}}">
+            <a href="/trip/{{_id}}">
+              <div class="title test col-md-9 col-xs-9 text-center">
+                {{formatDest destinationName}}
               </div>
 
-              <div class="col-md-3 col-xs-3">
-                Leaving in
+              <div class="timeStamp test col-md-3 col-xs-3">
                 {{formatDepartureTime departureTime currTime}}
               </div>
 
-              <div>
-                Open Seats:
+              <div class="test">
+                Seats Left:
+                {{#each takenSeatsHelper availableSeats seatsLeft}}
+                <div class="carseat taken"></div>
+                {{/each}}
                 {{#each seatsHelper seatsLeft}}
-                <div class="carseat" style="height: 20px; width: 20px; background-color: green; display: inline-block; padding-right: 10px;"></div>
+                <div class="carseat"></div>
                 {{/each}}
               </div>
             </a>
@@ -33,4 +34,28 @@
       </div>
     </div>
   </div>
+
+  <style>
+    .test {
+      border: 1px solid red;
+    }
+    .title {
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .timeStamp {
+      font-size: 18px;
+    }
+    .carseat {
+      height: 20px;
+      width: 20px;
+      background-color: #8BC34A;
+      display: inline-block;
+      padding-right: 10px;
+      border-radius: 4px;
+    }
+    .taken {
+      background-color: red;
+    }
+  </style>
 </template>
