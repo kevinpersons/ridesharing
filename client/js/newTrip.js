@@ -1,11 +1,9 @@
 // initialize clockpicker and google maps location autocomplete box
 Template.newTrip.rendered = function() {
   $('.clockpicker').clockpicker();
-  GoogleMaps.init({
-      'language': 'en',
-      'libraries': 'places'
-  },
-  function() {
+
+  if (GoogleMaps.loaded()) {
+
     // lat/lng represent a rectangle around Williamstown/North Adams
     var defaultBounds = new google.maps.LatLngBounds(
       new google.maps.LatLng(42.635801, -73.302174),
@@ -22,15 +20,15 @@ Template.newTrip.rendered = function() {
     };
     autocomplete = new google.maps.places.Autocomplete(input, options);
 
-    /*// When the user selects an address from the dropdown,
+    // When the user selects an address from the dropdown,
     google.maps.event.addListener(autocomplete, 'place_changed', function() {
 
          // Get the place details from the autocomplete object.
          var place = autocomplete.getPlace();
 
          console.log("place: " + JSON.stringify(place) );
-    });*/
-  });
+    });
+  }
 };
 
 Template.newTrip.events({

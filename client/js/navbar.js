@@ -17,7 +17,11 @@ Template.navbar.events({
   'click #login-button':function(event) {
     event.preventDefault();
     $("#navbar").collapse('hide');
-    Router.go('/login');
+  },
+  'click .login-display-name':function(event) {
+    event.preventDefault();
+    $("#navbar").collapse('hide');
+    Router.go('/account');
   },
   'click #new-button':function(event) {
     event.preventDefault();

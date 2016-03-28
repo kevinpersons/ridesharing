@@ -41,6 +41,9 @@ Template.content.helpers({
 
     return detailString;
   },
+  'formatTime':function(time) {
+    return new Date(time).toLocaleString();
+  },
   isCurrentPage: function(pageName){
     return Router.current().route.getName() == pageName;
   },

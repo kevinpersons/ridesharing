@@ -25,6 +25,45 @@
               </div>
             </a>
           </li>
+
+          <!-- Begin embedded mobile friendly detailed ride info -->
+
+          <li class="mobileInfo {{#if isCurrentPageId _id}}mobileActive{{/if}}">
+            <h1 class="page-header text-center">{{destinationName}}</h1>
+            <div>{{destinationAddress}}</div>
+            Leaving: {{formatTime departureTime}}
+            {{#if returnTime}}
+            <br>
+            Returning: {{formatTime returnTime}}
+            {{/if}}
+            <br>
+            Seats Left: {{seatsLeft}} / {{availableSeats}}
+            {{#if currentUser}}
+            <br>
+            Leaving From: {{departureLocation}}
+            <br>
+            Vehicle Description: {{vehicleDescription}}
+            {{/if}}
+            {{#if compensationAmount}}
+            <br>
+            Must pay: ${{compensationAmount}}.00
+            {{/if}}
+            {{#if note}}
+            <br>
+            Notes: {{note}}
+            {{/if}}
+            <br>
+            <br>
+            <br>
+            {{#if currentUser}}
+            <div class="text-center">
+              <a class="btn btn-primary btn-lg">Join Ride</a>
+            </div>
+            {{/if}}
+          </li>
+
+          <!-- End embedded info -->
+
           {{else}}
           <li>
             No ride offers to display :(
